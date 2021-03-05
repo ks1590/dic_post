@@ -253,6 +253,9 @@ ja:
       edit_profile: 'プロフィールを編集'
       team_you_belong_to: '所属しているチーム'
       posted_articles: '投稿した記事一覧'
+      success_agenda_destroy: "アジェンダを削除しました"
+      fail_agenda_destroy: "アジェンダを削除する権限がありません"
+      confirm_agenda_destroy: "削除してよろしですか？"
     button:
       submit: '投稿'
       edit: '編集'

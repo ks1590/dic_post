@@ -27,3 +27,7 @@ class User < ApplicationRecord
     SecureRandom.hex(10)
   end
 end
+
+def owner?(team)
+  self.id == team.owner_id
+end
