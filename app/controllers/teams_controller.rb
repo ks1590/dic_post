@@ -38,6 +38,20 @@ class TeamsController < ApplicationController
     end
   end
 
+  def change_leader
+    if current_user.owner?(@working_team)
+      @working_team.owner_id = params[:id]
+      @working_team.save
+
+      new_leader = @working_team.owner
+      NewLeaderMailer.new_leader_mail(new_leader).deliver
+      
+      redirect_to team_path(@working_team), notice: I18n.t('views.messages.success_chang_leader')
+    else
+      redirect_to team_path(@working_team), notice: I18n.t('views.messages.fail_change_leader')
+    end
+  end
+  
   def destroy
     @team.destroy
     redirect_to teams_url, notice: I18n.t('views.messages.delete_team')
